@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to browser events. Task 5</title>
+    <style>
+        .title {
+            display: inline;
+            position: relative;
+            margin: 20px;
+            transition: all .5s;
+        }
+
+        .title::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 3px;
+            border: 6px solid transparent;
+            border-left: 11px solid green;
+            transition: all .5s;
+        }
+
+        .menu.open .title::before {
+            transform: rotate(90deg);
+            top: 6px;
+            left: -17px;
+        }
+
+        .list {
+            padding-left: 25px;
+            list-style-type: none;
+            list-style-position: outside;
+            transform: scaleY(0);
+            height: 0;
+            transition: all .5s;
+        }
+
+        .menu.open .list {
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Introduction to browser events
+    </h2>
+    <p>
+        5. Создать меню, которое по нажатию открывается либо закрывается:
+    </p>
+
+    <p>
+        Результат:
+    </p>
+    <div class="menu">
+        <p class="title close">
+            Сладости (нажми меня)!
+        </p>
+        <ul class="list">
+            <li>Пирожное</li>
+            <li>Пончик</li>
+            <li>Мёд</li>
+        </ul>
+    </div>
+    <script>
+        let menu = document.querySelector('.menu');
+        let title = document.querySelector('.title');
+        title.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        })
+    </script>
+</body>
+
+</html>

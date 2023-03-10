@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Element size and scrolling. Task 2</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Element size and scrolling
+    </h2>
+    <p>
+        2. Напишите код, который возвращает ширину стандартной полосы прокрутки.<br/>
+        Для Windows она обычно колеблется от 12px до 20px. Если браузер не выделяет место под полосу прокрутки (так тоже бывает, она может быть прозрачной над текстом), тогда значение может быть 0px.<br/>
+        P.S. Ваш код должен работать в любом HTML-документе, независимо от его содержимого.
+    </p>
+
+    <p>
+        Ответ: let scrollBar = elem.offsetWidth - (elem.clientLeft * 2) - elem.clientWidth
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifying the document. Task 2</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Modifying the document
+    </h2>
+    <p>
+        2. Создайте функцию clear(elem), которая удаляет всё содержимое из elem.
+    </p>
+    <ol id="elem">
+        <li>Привет</li>
+        <li>Мир</li>
+    </ol>
+    <script>
+        let elem = document.querySelector('#elem');
+        function clear (elem) {
+            elem.innerHTML = ''
+        };
+        setTimeout(() => clear(elem), 2000);
+    </script>
+</body>
+
+</html>

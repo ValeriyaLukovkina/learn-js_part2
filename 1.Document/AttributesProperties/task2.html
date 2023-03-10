@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Attributes and propertiesvv. Task 2</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Attributes and properties
+    </h2>
+    <p>
+        2. Сделайте все внешние ссылки оранжевыми, изменяя их свойство style.
+    </p>
+    <ul>
+        <li><a href="http://google.com">http://google.com</a></li>
+        <li><a href="/tutorial">/tutorial.html</a></li>
+        <li><a href="local/path">local/path</a></li>
+        <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+        <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+        <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+      </ul>
+      <script>
+          let links = document.querySelectorAll('a');
+          for (let link of links) {
+              let meanAttr = link.getAttribute('href');
+              if (meanAttr && meanAttr.includes('://') && !meanAttr.startsWith('http://internal.com')) {
+                  link.style.color = 'orange';
+              }
+          }
+      </script>
+</body>
+
+</html>

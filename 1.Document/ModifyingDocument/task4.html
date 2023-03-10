@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifying the document. Task 4</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Modifying the document
+    </h2>
+    <p>
+        4. Напишите интерфейс для создания списка.
+    </p>
+    <p>
+        Для каждого пункта:
+    </p>
+    <ol>
+        <li>
+            Запрашивайте содержимое пункта у пользователя с помощью prompt.
+        </li>
+        <li>
+            Создавайте элемент &lt;li&gt; и добавляйте его к &lt;ul&gt;.  
+        </li>
+        <li>
+            Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
+        </li>
+    </ol>
+    <p>
+        Результат:
+    </p>
+    <ul id="list">
+
+    </ul>
+    <script>
+        let list = document.querySelector('#list');
+        while (true) {
+            let meta = prompt('Введите данные элемента', '');
+            if (!meta) {
+                break;
+            }
+            let li = document.createElement('li');
+            li.textContent = meta;
+            list.append(li);
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Searching: getElement*, querySelector*. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Searching: getElement*, querySelector*
+    </h2>
+    <p>
+        1. Вот документ с таблицей и формой.<br/>
+        Как найти?…
+    </p>
+    <ol>
+        <li>Таблицу с id="age-table".</li>
+        <li>Все элементы label внутри этой таблицы (их три).</li>
+        <li>Первый td в этой таблице (со словом «Age»).</li>
+        <li>Форму form с именем name="search".</li>
+        <li>Первый input в этой форме.</li>
+        <li>Последний input в этой форме.</li>
+    </ol>
+    <p>
+        Ответ:
+    </p>
+    <ol>
+        <li><code>document.getElementById('age-table')</code></li>
+        <li><code>document.getElementById('age-table').getElementsByTagName('label')</code></li>
+        <li><code>document.getElementById('age-table').querySelector('td')</code></li>
+        <li><code>document.querySelector('form[name="search"]')</code></li>
+        <li><code>document.querySelector('form[name="search"]').querySelector('input')</code></li>
+        <li><pre><code>
+            let inputs = document.querySelector('form[name="search"]').querySelectorAll('input')
+            inputs[inputs.length - 1]
+        </code></pre></li>
+    </ol>
+    <script>
+    </script>
+</body>
+
+</html>

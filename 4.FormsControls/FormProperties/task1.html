@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form properties and methods. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Forms, controls
+    </h1>
+    <h2>
+        Form properties and methods
+    </h2>
+    <p>
+        1. Имеется &lt;select&gt;:
+    </p>
+    <pre><code>
+        &lt;select id="genres"&gt;
+            &lt;option value="rock"&gt;Рок&lt;/option&gt;
+            &lt;option value="blues" selected&gt;Блюз&lt;/option&gt;
+        &lt;/select&gt;
+    </code></pre>
+    <p>
+        Используя JavaScript:
+    </p>
+    <ol>
+        <li>Выведите значение и текст выбранного пункта.</li>
+        <li>Добавьте пункт: &lt;option value="classic"&gt;Классика&lt;/option&gt;.</li>
+        <li>Сделайте его выбранным.</li>
+    </ol>
+    <p>Результат:</p>
+    <select id="genres">
+        <option value="rock">Рок</option>
+        <option value="blues" selected>Блюз</option>
+    </select>
+    <p class="res"></p>
+    <script>
+        let res = document.querySelector('.res');
+        const chooseRes = () => {
+            let selected = genres.selectedIndex;
+            res.innerHTML = genres.value + ' ' + genres[selected].text;
+        }
+        document.querySelector('#genres').addEventListener('change', () => {
+            chooseRes()
+        })
+        let newOption = new Option('Классика', 'classic');
+        genres.append(newOption);
+        newOption.selected = true;
+        chooseRes();
+    </script>
+</body>
+
+</html>

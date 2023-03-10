@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Node properties: type, tag and contents. Task 3</title>
+    <style>
+        #field {
+            width: 200px;
+            border: 10px groove black;
+            background-color: #00FF00;
+            position: relative;
+        }
+
+        #ball {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Node properties: type, tag and contents
+    </h2>
+    <p>
+        3. Исходный документ выглядит так:
+    </p>
+    <div id="field">
+        <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <p>
+        Каковы координаты центра поля?<br />
+        Вычислите их и используйте, чтобы поместить мяч в центр поля:
+    </p>
+    <p>Результат:</p>
+    <div id="field" class="fieldResult">
+        <img src="https://en.js.cx/clipart/ball.svg" id="ball" class="ballResult"> . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script>
+        let field = document.querySelector('.fieldResult');
+        let ball = document.querySelector('.ballResult');
+        let l = field.clientWidth / 2 - ball.offsetWidth / 2
+        let t = field.clientHeight / 2 - ball.offsetWidth / 2
+        ball.style.top = t + 'px'
+        ball.style.left = l + 'px'
+    </script>
+</body>
+
+</html>

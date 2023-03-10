@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coordinates. Task 1</title>
+    <style type="text/css">
+        body {
+            padding: 20px 0 0 20px;
+            cursor: pointer;
+        }
+
+        #field {
+            overflow: hidden;
+            width: 200px;
+            height: 150px;
+            border-top: 10px solid black;
+            border-right: 10px solid gray;
+            border-bottom: 10px solid gray;
+            border-left: 10px solid black;
+            background-color: #00FF00;
+            font: 10px/1.2 monospace;
+        }
+
+        .triangle-right {
+            position: relative;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 20px solid red;
+            text-indent: -20px;
+            font: 12px/1 monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Coordinates
+    </h2>
+    <p>
+        1. Используйте JavaScript, чтобы найти координаты углов, обозначенных стрелками.<br />
+        В документе уже реализована функциональность, когда при клике на любом месте показываются соответствующие
+        координаты.
+    </p>
+    Кликните в любом месте для получения координат в контексте окна.
+    <br> Это для тестирования, чтобы проверить результат, который вы получили с помощью JavaScript.
+    <br>
+    <div id="coords">(координаты покажутся здесь)</div>
+
+
+    <div id="field">
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+
+    <div class="triangle-right" style="left:-20px;top:-176px">1</div>
+    <div class="triangle-right" style="left:-10px;top:-178px">3</div>
+    <div class="triangle-right" style="left:190px;top:-40px">4</div>
+    <div class="triangle-right" style="left:200px;top:-42px">2</div>
+    <p>
+        Ваш код должен при помощи DOM получить четыре пары координат:
+    </p>
+    <ol>
+        <li>верхний левый, внешний угол (это просто).</li>
+        <li>нижний правый, внешний угол (тоже просто).</li>
+        <li>верхний левый, внутренний угол (чуть сложнее).</li>
+        <li>нижний правый, внутренний угол (есть несколько способов, выберите один).</li>
+    </ol>
+    <p>Ответ:</p>
+    <ol>
+        <li class="externalLeft"></li>
+        <li class="externalRight"></li>
+        <li class="interiorLeft"></li>
+        <li class="interiorRight"></li>
+    </ol>
+    <script>
+        document.onclick = function (e) {
+            coords.innerHTML = e.clientX + ':' + e.clientY;
+        };
+        const field = document.querySelector('#field');
+        const externalLeft = document.querySelector('.externalLeft');
+        const externalRight = document.querySelector('.externalRight');
+        const interiorLeft = document.querySelector('.interiorLeft');
+        const interiorRight = document.querySelector('.interiorRight');
+        let coord = field.getBoundingClientRect()
+        externalLeft.innerHTML = Math.round(coord.left) + ':' + Math.round(coord.top);
+        externalRight.innerHTML = Math.round(coord.right) + ':' + Math.round(coord.bottom);
+        interiorLeft.innerHTML = (Math.round(coord.left) + field.clientLeft) + ':' + (Math.round(coord.top) + field.clientTop);
+        interiorRight.innerHTML = (Math.round(coord.left) + field.clientLeft + field.clientWidth) + ':' + (Math.round(coord.top) + field.clientTop + field.clientHeight);
+    </script>
+</body>
+
+</html>

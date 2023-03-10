@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Attributes and propertiesvv. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Attributes and properties
+    </h2>
+    <p>
+        1. ДНапишите код для выбора элемента с атрибутом data-widget-name из документа и прочитайте его значение.
+    </p>
+    <p>Элемент:</p>
+    <div data-widget-name="menu">Choose the genre</div>
+    <script>
+        let el = document.querySelector('[data-widget-name]');
+        alert(el.getAttribute('data-widget-name'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Walking the DOM. Task 3</title>
+    <style type="text/css">
+        #table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 3px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Walking the DOM
+    </h2>
+    <p>
+        3. Напишите код, который выделит красным цветом все ячейки в таблице по диагонали.<br />
+        Вам нужно получить из таблицы &lt;table&gt; все диагональные &lt;td&gt; и выделить их, используя код:
+    </p>
+    <pre><code>
+        td.style.backgroundColor = 'red';     
+    </code></pre>
+    <table id="table">
+    </table>
+    <script>
+        let table = document.querySelector('#table');
+        for (let i = 1; i <= 5; i++) {
+            let tr = document.createElement('tr');
+            for (let k = 1; k <= 5; k++) {
+                let td = document.createElement('td');
+                td.innerHTML = i + ':' + k;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        for (let j = 0; j < table.rows.length; j++) {
+            let row = table.rows[j];
+            row.cells[j].style.backgroundColor = 'red';
+        }
+    </script>
+</body>
+
+</html>

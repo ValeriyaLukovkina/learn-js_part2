@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to browser events. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Introduction to browser events
+    </h2>
+    <p>
+        1. Добавьте JavaScript к кнопке button, чтобы при нажатии элемент
+        &lt;div id="text"&gt; исчезал.
+    </p>
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+
+    <div id="text">Текст</div>
+    <script>
+        let btn = document.querySelector('#hider');
+        let txt = document.querySelector('#text');
+        btn.addEventListener('click', () => {
+            txt.style.display = 'none'
+        })
+    </script>
+</body>
+
+</html>

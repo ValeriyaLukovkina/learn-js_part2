@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Browser default actions. Task 2</title>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Browser default actions
+    </h2>
+    <p>
+        2. Сделайте так, чтобы при клике на ссылки внутри элемента id="contents" пользователю выводился вопрос о том, действительно ли он хочет покинуть страницу, и если он не хочет, то прерывать переход по ссылке.
+    </p>
+    <p>
+        Результат:
+    </p>
+    <fieldset id="contents">
+        <legend>#contents</legend>
+        <p>
+          Как насчёт того, чтобы прочитать <a href="https://wikipedia.org">Википедию</a> или посетить <a href="https://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?
+        </p>
+      </fieldset>
+
+    <script>
+        let contents = document.querySelector('#contents');
+        contents.addEventListener('click', (event) => {
+
+            let target = event.target.closest('a');
+            if (target) {
+                let isLeave = confirm(`Leave for ${target.getAttribute('href')}?`)
+                if (!isLeave) {
+                    event.preventDefault();
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

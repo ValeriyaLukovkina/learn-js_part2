@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifying the document. Task 6</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Modifying the document
+    </h2>
+    <p>
+        6. Есть дерево, организованное в виде вложенных списков ul/li.<br />
+        Напишите код, который добавит каждому элементу списка &lt;li&gt; количество вложенных в него элементов. Узлы
+        нижнего уровня, без детей – пропускайте.
+    </p>
+    <p>
+        Результат:
+    </p>
+    <ul id="list">
+        <li>Животные
+            <ul>
+                <li>Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li>Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Рыбы
+            <ul>
+                <li>Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Скалярии</li>
+                    </ul>
+                </li>
+                <li>Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        let lis = document.querySelectorAll('li');
+        for (let li of lis) {
+            let count = li.querySelectorAll('li').length;
+            if (count != 0) {
+                li.firstChild.textContent += ' [' + count + ']'
+            }
+        }
+    </script>
+</body>
+
+</html>

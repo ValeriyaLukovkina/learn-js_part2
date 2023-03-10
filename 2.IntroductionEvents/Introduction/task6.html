@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to browser events. Task 6</title>
+    <style>
+        /* body {
+            margin: 10px auto;
+            width: 470px;
+        } */
+
+        .pane h3 {
+            margin: 0;
+            padding-bottom: .3em;
+            font-size: 1.1em;
+        }
+
+        .pane p {
+            margin: 0;
+            padding: 0 0 .5em;
+        }
+
+        .pane {
+            position: relative;
+            background: #edf5e1;
+            padding: 10px 20px 10px;
+            border-top: solid 2px #c4df9b;
+        }
+
+        .remove-button {
+            position: absolute;
+            top: 0px;
+            right: 20px;
+            font-size: 110%;
+            color: darkred;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Introduction to browser events
+    </h2>
+    <p>
+        6. Есть список сообщений.<br />
+        При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия.
+    </p>
+    <p>
+        Результат:
+    </p>
+    <div>
+        <div class="pane">
+            <h3>Лошадь</h3>
+            <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид
+                дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+        </div>
+        <div class="pane">
+            <h3>Осёл</h3>
+            <p>Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus),
+                сыгравший важную историческую роль в развитии хозяйства и культуры человека и по-прежнему широко в
+                хозяйстве многих развивающихся стран.</p>
+        </div>
+        <div class="pane">
+            <h3>Кошка</h3>
+            <p>Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее
+                популярных(наряду с собакой) «животных-компаньонов». Являясь одиночным охотником на грызунов и других
+                мелких животных, кошка — социальное животное, использующее для общения широкий диапазон звуковых
+                сигналов.</p>
+        </div>
+    </div>
+    <script>
+        let elems = document.querySelectorAll('.pane');
+        let btn = '<button class="remove-button">[x]</button>';
+        for (let elem of elems) {
+            elem.insertAdjacentHTML('afterbegin', btn);
+            elem.firstChild.addEventListener('click', () => {
+                elem.remove();
+            })
+        }
+    </script>
+</body>
+
+</html>

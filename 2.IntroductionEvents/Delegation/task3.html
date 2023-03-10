@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event delegation. Task 3</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Event delegation
+    </h2>
+    <p>
+        3. Сделать таблицу сортируемой: при клике на элемент &lt;th&gt; строки таблицы должны сортироваться по
+        соответствующему столбцу.
+    </p>
+    <p>Результат:</p>
+    <table id="grid">
+        <thead>
+            <tr>
+                <th data-type="number">Возраст</th>
+                <th data-type="string">Имя</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>Вася</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Петя</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Женя</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Маша</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Илья</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const table = document.querySelector('#grid');
+        const tbody = table.querySelector('tbody')
+        table.addEventListener('click', (e) => {
+            if (e.target.tagName != 'TH') {
+                return
+            }
+            let trs = Array.from(tbody.rows);
+            let type = e.target.dataset.type;
+            if (type == 'string') {
+                trs.sort(function (a, b) {
+                    return a.cells[e.target.cellIndex].innerHTML > b.cells[e.target.cellIndex].innerHTML ? 1 : -1;
+                })
+            } else if (type == 'number') {
+                trs.sort(function (a, b) {
+                    return a.cells[e.target.cellIndex].innerHTML - b.cells[e.target.cellIndex].innerHTML;
+                })
+            }
+            tbody.append(...trs);
+        })
+    </script>
+</body>
+
+</html>

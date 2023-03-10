@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifying the document. Task 3</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Modifying the document
+    </h2>
+    <p>
+        3. В примере ниже вызов table.remove() удаляет таблицу из документа.<br />
+        Но если вы запустите его, вы увидите, что текст "aaa" все еще виден.<br />
+        Почему так происходит?
+    </p>
+    <p>
+        Ответ: потому что из-за неправильно html кода выводится 'aaa' выводится до тега table и при удалении table 'aaa' остается, так как4 расположено не внутри table
+    </p>
+    <table id="table">
+        aaa
+        <tr>
+            <td>Тест</td>
+        </tr>
+    </table>
+    <script>
+        alert(table);
+        setTimeout(() => table.remove(), 1000 )
+    </script>
+</body>
+
+</html>

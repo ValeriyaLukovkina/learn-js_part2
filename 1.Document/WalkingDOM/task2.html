@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Walking the DOM. Task 2</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Walking the DOM
+    </h2>
+    <p>
+        2. Если elem – произвольный узел DOM-элемента…
+    </p>
+    <ul>
+        <li>Правда, что elem.lastChild.nextSibling всегда равен null?</li>
+        <li>Правда, что elem.children[0].previousSibling всегда равен null ?</li>
+    </ul>
+    <p>
+        Ответ:
+    </p>
+    <ol>
+        <li>Да, потому что lastChild это всегда последний элемент и у него нет ссылки на nextSibling</li>
+        <li>Нет, так как children выводит только детей, то перед может быть какой-то узел, который не является элементом</li>
+    </ol>
+</body>
+
+</html>

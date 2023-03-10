@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Styles and classes. Task 1</title>
+    <style type="text/css">
+        .notification {
+            position: fixed;
+            background-color: red;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Styles and classes
+    </h2>
+    <p>
+        1. Напишите функцию showNotification(options), которая создаёт уведомление:
+        &lt;div class="notification"&gt; с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5
+        секунды.<br />
+        Пример объекта options:
+        </p>
+        <pre><code>
+        // показывает элемент с текстом "Hello" рядом с правой верхней частью окна.
+        showNotification({
+            top: 10, // 10px от верхней границы окна (по умолчанию 0px)
+            right: 10, // 10px от правого края окна (по умолчанию 0px)
+            html: "Hello!", // HTML-уведомление
+            className: "welcome" // дополнительный класс для div (необязательно)
+        });
+    </code></pre>
+        <script>
+            function showNotification({ top = 0, right = 0, html, className }) {
+                let elem = document.createElement('div');
+                elem.className = 'notification';
+                if (className) {
+                    elem.classList.add(className);
+                }
+                elem.innerHTML = html;
+                elem.style.top = top + 'px';
+                elem.style.right = right + 'px'
+                document.body.append(elem);
+                    setTimeout (() => {
+        elem.remove()
+    }, 1500)
+            }
+            setTimeout(() => {
+                showNotification({
+                    top: 10,
+                    right: 10,
+                    html: "Hello!",
+                    className: "welcome"
+                });
+            }, 2000)
+        </script>
+</body>
+
+</html>

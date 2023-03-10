@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Browser default actions. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Browser default actions
+    </h2>
+    <p>
+        Почему в коде ниже return false не работает?
+    </p>
+    <pre><code>
+        &lt;script&gt;
+            function handler() {
+                alert( "..." );
+                return false;
+            }
+        &lt;/script&gt;
+      
+        &lt;a href="https://w3.org" onclick="handler()"&gt;браузер откроет w3.org&lt;/a&gt;
+    </code></pre>
+    <p>
+        Браузер переходит по указанной ссылке, но нам этого не нужно.<br />
+        Как поправить?
+    </p>
+    <p>
+        Ответ: потому что в приведенном примере обработчик событий делает вокруг функции функцию-обертку и не возвращает false. Нужно либо в обработчике событий возвращать функцию, тоесть написать onclick="return handler()", либо использовать preventDefault
+    </p>
+    <p>Исправленный вариант</p>
+    <a href="https://w3.org" onclick="handler(event)">браузер откроет w3.org</a>
+    <script>
+        function handler(event) {
+            debugger;
+            alert("...");
+            event.preventDefault()
+        }
+    </script>
+</body>
+
+</html>

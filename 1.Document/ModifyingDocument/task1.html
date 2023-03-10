@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifying the document. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Modifying the document
+    </h2>
+    <p>
+        1. У нас есть пустой DOM-элемент elem и строка text.<br />
+        Какие из этих 3-х команд работают одинаково?
+    </p>
+    <ol>
+        <li>elem.append(document.createTextNode(text))</li>
+        <li>elem.innerHTML = text</li>
+        <li>elem.textContent = text</li>
+    </ol>
+    <p>
+        Ответ: 1 и 3 работают одинаково и не преобразуют теги в текст
+    </p>
+    <div id="elem1"></div>
+    <div id="elem2"></div>
+    <div id="elem3"></div>
+    <script>
+        let text = '<b>текст</b>';
+
+        elem1.append(document.createTextNode(text));
+        elem2.innerHTML = text;
+        elem3.textContent = text;
+    </script>
+</body>
+
+</html>

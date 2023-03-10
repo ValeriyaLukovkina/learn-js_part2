@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to browser events. Task 3</title>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Introduction to browser events
+    </h2>
+    <p>
+        3. В переменной button находится кнопка. Изначально на ней нет обработчиков.<br />
+        Который из обработчиков запустится? Что будет выведено при клике после выполнения кода?
+    </p>
+    <pre><code>
+        button.addEventListener("click", () => alert("1"));
+
+        button.removeEventListener("click", () => alert("1"));
+
+        button.onclick = () => alert(2);
+    </code></pre>
+    <input type="button" id="btn" value="Button" />
+    <p>
+        Ответ: выведется 1, затем 2. Произойдет это потому что обработчик был удален неправильно. Чтобы удалить обработчик , ему нужно передавать ту же самую функцию, а в нашем случае была передана похожая функция, но не та же. 
+    </p>
+    <script>
+        let button = document.querySelector('#btn');
+
+        button.addEventListener("click", () => alert("1"));
+
+        button.removeEventListener("click", () => alert("1"));
+
+        button.onclick = () => alert(2);
+    </script>
+</body>
+
+</html>

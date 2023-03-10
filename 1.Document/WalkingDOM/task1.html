@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Walking the DOM. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Walking the DOM
+    </h2>
+    <p>
+        1. Для страницы:
+    </p>
+    <pre><code>
+        &lt;html&gt;
+            &lt;body&gt;
+              &lt;div&gt;Пользователи:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;Джон&lt;/li&gt;
+                &lt;li&gt;Пит&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+    </code></pre>
+    <p>Напишите код, как получить…</p>
+    <ol>
+        <li>элемент &lt;div&gt;?</li>
+        <li>&lt;ul&gt;</li>
+        <li>второй &lt;li&gt; (с именем Пит)?</li>
+    </ol>
+    <p>
+        Ответ:
+    </p>
+    <ol>
+        <li>document.body.firstElementChild</li>
+        <li>document.body.lastElementChild</li>
+        <li>document.body.lastElementChild.lastElementChild</li>
+    </ol>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to browser events. Task 4</title>
+    <style>
+        #field {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            border: 10px solid black;
+            background-color: #00FF00;
+            overflow: hidden;
+        }
+
+        #ball {
+            position: absolute;
+            transition: all 1s;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Browser: Document, Events, Interfaces
+    </h1>
+    <h2>
+        Introduction to browser events
+    </h2>
+    <p>
+        4. Пусть мяч перемещается при клике на поле, туда, куда был клик
+    </p>
+    <p>
+        Требования:
+    </p>
+    <ul>
+        <li>
+            Центр мяча должен совпадать с местом нажатия мыши (если это возможно без пересечения краёв поля); </li>
+        <li>
+            CSS-анимация желательна, но не обязательна; </li>
+        <li>
+            Мяч ни в коем случае не должен пересекать границы поля;
+        </li>
+        <li>
+            При прокрутке страницы ничего не должно ломаться;
+        </li>
+    </ul>
+    <p>
+        Результат:
+    </p>
+    <div id="field">
+        <img src="https://ru.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script>
+        let field = document.querySelector('#field');
+        let ball = document.querySelector('#ball');
+        field.addEventListener('click', (e) => {
+            let coordMouseLeft = e.clientX;
+            let coordMouseTop = e.clientY;
+            let fieldCoords = field.getBoundingClientRect();
+            let coordBallTop = coordMouseTop - fieldCoords.top - field.clientTop - (ball.offsetWidth / 2);
+            let coordBallLeft = coordMouseLeft - fieldCoords.left - field.clientLeft -  (ball.offsetHeight / 2);
+            let maxCoordBallTop = field.clientHeight - ball.offsetHeight;
+            let maxCoordBallLeft = field.clientWidth - ball.offsetWidth;
+            if (coordBallTop < 0) {
+                coordBallTop = 0;
+            } else if (coordBallTop > maxCoordBallTop) {
+                coordBallTop = maxCoordBallTop;
+            }
+            if (coordBallLeft < 0) {
+                coordBallLeft = 0;
+            } else if (coordBallLeft > maxCoordBallLeft) {
+                coordBallLeft = maxCoordBallLeft;
+            }
+            ball.style.top = coordBallTop + 'px';
+            ball.style.left = coordBallLeft + 'px';
+
+        })
+    </script>
+</body>
+
+
+</html>

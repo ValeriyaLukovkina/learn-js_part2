@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Node properties: type, tag and contents. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Node properties: type, tag and contents
+    </h2>
+    <p>
+        1. У нас есть дерево, структурированное как вложенные списки ul/li.<br />
+        Напишите код, который выведет каждый элемент списка &lt;li&gt;:
+    </p>
+    <ul>
+        <li>Какой в нём текст (без поддерева) ?</li>
+        <li>Какое число потомков – всех вложенных &lt;li&gt; (включая глубоко вложенные) ?</li>
+    </ul>
+    <p>
+        Список:
+    </p>
+    <ul id="list">
+        <li>Животные
+            <ul>
+                <li>Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li>Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Рыбы
+            <ul>
+                <li>Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Рыба-ангел</li>
+                    </ul>
+                </li>
+                <li>Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div>
+        <p>Элементы:</p>
+        <ol class="list_elem">
+
+        </ol>
+    </div>
+    <p class="txt">Количество элементов: </p>
+
+    <script>
+        let list = document.querySelector('#list');
+        let lis = list.querySelectorAll('li');
+        let txt = document.querySelector('.txt');
+        let listElem = document.querySelector('.list_elem');
+
+        for (let li of lis) {
+            let el = document.createElement('li');
+            el.textContent = li.firstChild.data;
+            listElem.appendChild(el);
+        }
+        let num = lis.length
+        txt.innerHTML += num
+
+    </script>
+</body>
+
+</html>

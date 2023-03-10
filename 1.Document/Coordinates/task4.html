@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coordinates. Task 4</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Coordinates
+    </h2>
+    <p>
+        4. В чём отличие между getComputedStyle(elem).width и elem.clientWidth?
+    </p>
+    <div class="block">Блочный элемент</div>
+    <span class="inline">Строчный элемент</span>
+    <p>
+        Ответ:
+    </p>
+    <ol>
+        <li>getComputedStyle(elem).width возвращает строку с px, а clientWidth возвращает число </li>
+        <li>Для строчного элементаget ComputedStyle может вернуть auto, вместо ширины</li>
+        <li>clientWidth - это ширина вместе с padding, а getComputedStyle возвращает ширину без padding </li>
+    </ol>
+    <script>
+        let block = document.querySelector('.block');
+        let inline = document.querySelector('.inline');
+        alert('getComputedStyle для блочного элемента = ' + getComputedStyle(block).width);
+        alert('clientWidth для блочного элемента = ' + block.clientWidth);
+        alert('getComputedStyle для строчного элемента = ' + getComputedStyle(inline).width);
+        alert('clientWidth для строчного элемента = ' + inline.clientWidth);
+    </script>
+</body>
+
+
+</html>

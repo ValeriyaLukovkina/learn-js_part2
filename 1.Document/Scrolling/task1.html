@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Element size and scrolling. Task 1</title>
+</head>
+
+<body>
+    <h1>
+        Document
+    </h1>
+    <h2>
+        Element size and scrolling
+    </h2>
+    <p>
+        1. Свойство elem.scrollTop содержит размер прокрученной области при отсчёте сверху. А как подсчитать размер
+        прокрутки снизу (назовём его scrollBottom)?<br />
+        Напишите соответствующее выражение для произвольного элемента elem.<br />
+        P.S. Проверьте: если прокрутки нет вообще или элемент полностью прокручен – оно должно давать 0.
+    </p>
+    <p>
+        Ответ: <code>let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight;</code>
+    </p>
+</body>
+
+</html>
