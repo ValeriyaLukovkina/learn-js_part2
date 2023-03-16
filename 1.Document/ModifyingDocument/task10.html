@@ -14,20 +14,50 @@
         Modifying the document
     </h2>
     <p>
-        3. Что выведет этот код?
+        10. Напишите код для сортировки по столбцу "name" в таблице.
     </p>
-    <pre><code>
-        &lt;script&gt;
-            let body = document.body;
-          
-            body.innerHTML = "<!--" + body.tagName + "-->";
-          
-            alert( body.firstChild.data ); // что выведет?
-        &lt;/script&gt;
-    </code></pre>
     <p>
-        Ответ: 'BODY'. Так как tagName - это названеи тега в верхнем регистре, а data для комментария выводит содержимое.
+        Результат:
     </p>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Pete</td>
+                <td>Brown</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Ann</td>
+                <td>Lee</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        let table = document.querySelector('#table');
+        let rows = Array.from(table.rows);
+        let sortRows = rows.slice(1).sort((a, b) => {
+            return a.cells[0].innerHTML > b.cells[0].innerHTML ? 1 : -1
+        })
+        table.tBodies[0].append(...sortRows)
+    </script>
 </body>
 
 </html>

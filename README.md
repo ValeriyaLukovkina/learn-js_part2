@@ -2,7 +2,7 @@
 
 # Part 2. Browser: Document, Events, Interfaces
 
-https://valeriyalukovkina.github.io/learn-js
+https://valeriyalukovkina.github.io/learn-js_part2/
 
 # 1.Document
 
@@ -78,7 +78,13 @@ https://valeriyalukovkina.github.io/learn-js
 4.1 Form properties and methods
 - [Add an option to select](https://valeriyalukovkina.github.io/learn-js_part2/4.FormsControls/FormProperties/task1.html);
 
-4.1 Form properties and methods
+4.2 Focusing: focus/blur
 - [Editable div](https://valeriyalukovkina.github.io/learn-js_part2/4.FormsControls/Focusing/task1.html);
 - [Edit TD on click](https://valeriyalukovkina.github.io/learn-js_part2/4.FormsControls/Focusing/task2.html);
 - [Keyboard-driven mouse](https://valeriyalukovkina.github.io/learn-js_part2/4.FormsControls/Focusing/task3.html);
+
+4.3 Events: change, input, cut, copy, paste
+- [Deposit calculator](https://valeriyalukovkina.github.io/learn-js_part2/4.FormsControls/Events/task1.html);
+
+4.4 Forms: event and method submit
+- [Modal form](https://valeriyalukovkina.github.io/learn-js_part2/4.FormsControls/Forms/task1.html);

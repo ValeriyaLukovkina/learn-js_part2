@@ -4,6 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Focusing: focus/blur. Task 3</title>
+    <style>
+        #mouse {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        #mouse:focus {
+            outline: 1px dashed black;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,28 +25,49 @@
         Focusing: focus/blur
     </h2>
     <p>
-        3. В переменной button находится кнопка. Изначально на ней нет обработчиков.<br />
-        Который из обработчиков запустится? Что будет выведено при клике после выполнения кода?
+        3. Установите фокус на мышь. Затем используйте клавиши со стрелками, чтобы её двигать:
     </p>
-    <pre><code>
-        button.addEventListener("click", () => alert("1"));
+    <p>Кликните по "изображению" мыши и перемещайте её с помощью клавиш со стрелками.</p>
 
-        button.removeEventListener("click", () => alert("1"));
+    <pre id="mouse">
+   _   _
+  (q\_/p)
+   /. .\
+  =\_t_/=   __
+   /   \   (
+  ((   ))   )
+  /\) (/\  /
+  \  Y  /-'
+   nn^nn
+  </pre>
 
-        button.onclick = () => alert(2);
-    </code></pre>
-    <input type="button" id="btn" value="Button" />
-    <p>
-        Ответ: выведется 1, затем 2. Произойдет это потому что обработчик был удален неправильно. Чтобы удалить обработчик , ему нужно передавать ту же самую функцию, а в нашем случае была передана похожая функция, но не та же. 
-    </p>
     <script>
-        let button = document.querySelector('#btn');
 
-        button.addEventListener("click", () => alert("1"));
+        const mouse = document.querySelector('#mouse');
+        mouse.tabIndex = 0;
 
-        button.removeEventListener("click", () => alert("1"));
+        mouse.onclick = function () {
+            mouse.style.left = mouse.getBoundingClientRect().x + 'px';
+            mouse.style.top = mouse.getBoundingClientRect().y + 'px';
+            mouse.style.position = 'fixed';
+        };
 
-        button.onclick = () => alert(2);
+        mouse.onkeydown = function (event) {
+            switch (event.key) {
+                case 'ArrowLeft':
+                    mouse.style.left = parseInt(mouse.style.left) - mouse.offsetWidth + 'px';
+                    return false;
+                case 'ArrowUp':
+                    mouse.style.top = parseInt(mouse.style.top) - mouse.offsetHeight + 'px';
+                    return false;
+                case 'ArrowRight':
+                    mouse.style.left = parseInt(mouse.style.left) + mouse.offsetWidth + 'px';
+                    return false;
+                case 'ArrowDown':
+                    mouse.style.top = parseInt(mouse.style.top) + mouse.offsetHeight + 'px';
+                    return false;
+            }
+        };
     </script>
 </body>
 

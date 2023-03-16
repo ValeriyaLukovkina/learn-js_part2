@@ -4,6 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Modifying the document. Task 8</title>
+    <style>
+        .hour {
+            color: red;
+        }
+
+        .min {
+            color: green;
+        }
+
+        .sec {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,22 +27,45 @@
         Modifying the document
     </h2>
     <p>
-        2. Что выведет этот код?v
+        8. Создайте цветные часы
     </p>
-    <pre><code>
-        &lt;html&gt;
-
-        &lt;body&gt;
-            &lt;script&gt;
-                alert(document.body.lastChild.nodeType);
-            &lt;/script&gt;
-        &lt;/body&gt;
-
-        &lt;/html&gt;
-    </code></pre>
     <p>
-        Ответ: 1 = узел-элемент script
+        Результат:
     </p>
+    <div class="timer">
+        <span class="hour"></span>:
+        <span class="min"></span>:
+        <span class="sec"></span>
+    </div>
+    <input type="button" onclick="clockStart()" value="Старт">
+    <input type="button" onclick="clockStop()" value="Стоп">
+    <script>
+        let timerId;
+
+        const addZero = (num) => {
+            if (num < 10) {
+                return `0${num}`
+            }
+            return num;
+        }
+
+        const setTime = () => {
+            let date = new Date()
+            document.querySelector('.hour').innerHTML = addZero(date.getHours());
+            document.querySelector('.min').innerHTML = addZero(date.getMinutes());
+            document.querySelector('.sec').innerHTML = addZero(date.getSeconds());
+        }
+
+        function clockStart() {
+            timerId = setInterval(setTime, 1000)
+        }
+
+        function clockStop() {
+            clearInterval(timerId)
+        }
+
+        setTime();
+    </script>
 </body>
 
 </html>

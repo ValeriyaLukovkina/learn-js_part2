@@ -14,7 +14,7 @@
         Searching: getElement*, querySelector*
     </h2>
     <p>
-        1. Вот документ с таблицей и формой.<br/>
+        1. Вот документ с таблицей и формой.<br />
         Как найти?…
     </p>
     <ol>
@@ -34,10 +34,10 @@
         <li><code>document.getElementById('age-table').querySelector('td')</code></li>
         <li><code>document.querySelector('form[name="search"]')</code></li>
         <li><code>document.querySelector('form[name="search"]').querySelector('input')</code></li>
-        <li><pre><code>
-            let inputs = document.querySelector('form[name="search"]').querySelectorAll('input')
-            inputs[inputs.length - 1]
-        </code></pre></li>
+        <li><code>
+                    let inputs = document.querySelector('form[name="search"]').querySelectorAll('input')<br/>
+                    inputs[inputs.length - 1]
+        </code></li>
     </ol>
     <script>
     </script>

@@ -14,20 +14,24 @@
         Modifying the document
     </h2>
     <p>
-        3. Что выведет этот код?
+        9. Напишите код для вставки &lt;li&gt;2&lt;/li&gt;&lt;li&gt;3&lt;/li&gt; между этими двумя &lt;li&gt;:
     </p>
     <pre><code>
-        &lt;script&gt;
-            let body = document.body;
-          
-            body.innerHTML = "<!--" + body.tagName + "-->";
-          
-            alert( body.firstChild.data ); // что выведет?
-        &lt;/script&gt;
+        &lt;ul id="ul"&gt;
+            &lt;li id="one"&gt;1&lt;/li&gt;
+            &lt;li id="two"&gt;4&lt;/li&gt;
+        &lt;/ul&gt;
     </code></pre>
     <p>
-        Ответ: 'BODY'. Так как tagName - это названеи тега в верхнем регистре, а data для комментария выводит содержимое.
+        Результат:
     </p>
+    <ul id="ul">
+        <li id="one">1</li>
+        <li id="two">4</li>
+      </ul>
+    <script>
+        document.querySelector('#one').insertAdjacentHTML('afterend', '<li>2</li><li>3</li>');
+    </script>
 </body>
 
 </html>
